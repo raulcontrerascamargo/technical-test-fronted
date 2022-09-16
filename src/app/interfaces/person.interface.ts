@@ -1,6 +1,7 @@
 export interface PersonInterface {
   id?: number;
   name: string;
-  category: string;
+  department: string;
   happiness: number;
+  monthsWorking: number;
 }

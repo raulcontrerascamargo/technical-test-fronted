@@ -3,13 +3,15 @@
     <tr>
       <th>Nombre</th>
       <th>Puesto</th>
+      <th>Tiempo Trabajando</th>
       <th>Nivel de Felicidad</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let person of listPerson">
       <td>{{ person.name }}</td>
-      <td>{{ person.category }}</td>
+      <td>{{ person.department }}</td>
+      <td>{{ person.monthsWorking | monthConverter }}</td>
       <td>{{ person.happiness }}</td>
     </tr>
   </tbody>

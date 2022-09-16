@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NewEmployeComponent } from './components/new-employe/new-employe.component';
 import { ListComponent } from './components/list/list.component';
+import { MonthConverterPipe } from './pipes/month-converter.pipe';
 
 
 
@@ -15,6 +16,7 @@ import { ListComponent } from './components/list/list.component';
     MenuComponent,
     NewEmployeComponent,
     ListComponent,
+    MonthConverterPipe,
   ],
   imports: [
     BrowserModule,
