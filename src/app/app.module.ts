@@ -8,6 +8,7 @@ import { NewEmployeComponent } from './components/new-employe/new-employe.compon
 import { ListComponent } from './components/list/list.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { ListComponent } from './components/list/list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
