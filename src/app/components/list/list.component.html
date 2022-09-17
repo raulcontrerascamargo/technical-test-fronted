@@ -1,14 +1,16 @@
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Nombre</th>
       <th>Puesto</th>
       <th>Tiempo Trabajando</th>
       <th>Nivel de Felicidad</th>
     </tr>
   </thead>
-  <tbody> 
-    <tr *ngFor="let person of listPerson">
+  <tbody>
+    <tr *ngFor="let person of listPerson; let i = index">
+      <td>{{ (i ) + (paginator.pageIndex * paginator.pageSize + 1) }}</td>
       <td>{{ person.name }}</td>
       <td>{{ person.department }}</td>
       <td>{{ person.monthsWorking | monthConverter }}</td>
@@ -16,3 +18,5 @@
     </tr>
   </tbody>
 </table>
+<button (click)="back()">Back</button>
+<button (click)="next()">Next</button>
