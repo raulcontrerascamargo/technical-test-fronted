@@ -1,22 +1,129 @@
-<table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Nombre</th>
-      <th>Puesto</th>
-      <th>Tiempo Trabajando</th>
-      <th>Nivel de Felicidad</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let person of listPerson; let i = index">
-      <td>{{ (i ) + (paginator.pageIndex * paginator.pageSize + 1) }}</td>
-      <td>{{ person.name }}</td>
-      <td>{{ person.department }}</td>
-      <td>{{ person.monthsWorking | monthConverter }}</td>
-      <td>{{ person.happiness }}</td>
-    </tr>
-  </tbody>
-</table>
-<button (click)="back()">Back</button>
-<button (click)="next()">Next</button>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Working Since</th>
+        <th>Happiness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of listPerson; let i = index">
+        <td>{{ i + (paginator.pageIndex * paginator.pageSize + 1) }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.department }}</td>
+        <td>{{ person.monthsWorking | monthConverter }}</td>
+        <td>
+          <ng-template #joyful [ngIf]="person.happiness >= 85">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.6em"
+              height="1.6em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M130.7 313.9c-4.2-13.5 7.1-25.9 20.4-25.9h213.4c14.2
+                 0 25.4 12.4 21.3 25.9c-17.7 54.5-67.6 94.1-127.6
+                  94.1s-110.7-39.6-127.5-94.1zM208.4 192c0 17.7-14.4
+                   32-32 32c-17.7 0-32-14.3-32-32s14.3-32 32-32c17.6
+                    0 32 14.3 32 32zm96 0c0-17.7 14.3-32 32-32c17.6
+                     0 32 14.3 32 32s-14.4 32-32 32c-17.7
+                      0-32-14.3-32-32zM512 256c0 141.4-114.6 256-256 256S0
+                       397.4 0 256S114.6 0 256 0s256 114.6 256 256zM256
+                        48C141.1 48 48 141.1 48 256s93.1 208 208 208s208-93.1
+                         208-208S370.9 48 256 48z"
+              />
+            </svg>
+          </ng-template>
+
+          <ng-template
+            #happy
+            [ngIf]="person.happiness >= 60 && person.happiness < 85"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.6em"
+              height="1.6em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M256 352c37.2 0 63.2-17.5 78.4-33.9c8.9-9.7 24.1-10.4
+                 33.9-1.4c9.7 9 10.3 24.2 1.3 33.9C347.7 374.5 309.7 400
+                  256 400c-53.7 0-91.7-25.5-113.6-49.4c-9-9.7-9.3-24.9
+                   1.3-33.9c9.8-9 25-8.3 33.9 1.4c15.2 16.4 41.2 33.9
+                    78.4 33.9zm-47.6-144c0 17.7-14.4 32-32 32c-17.7
+                     0-32-14.3-32-32s14.3-32 32-32c17.6 0 32 14.3 32
+                      32zm96 0c0-17.7 14.3-32 32-32c17.6 0 32 14.3 32
+                       32s-14.4 32-32 32c-17.7 0-32-14.3-32-32zM512 256c0
+                        141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256
+                         0s256 114.6 256 256zM256 48C141.1 48 48 141.1 48
+                          256s93.1 208 208 208s208-93.1 208-208S370.9 48 256 48z"
+              />
+            </svg>
+          </ng-template>
+
+          <ng-template
+            #neutral
+            [ngIf]="person.happiness >= 35 && person.happiness < 60"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.6em"
+              height="1.6em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M144.4 208c0-17.7 14.3-32 32-32c17.6 0 32 14.3 32 32s-14.4
+                 32-32 32c-17.7 0-32-14.3-32-32zm224 0c0 17.7-14.4 32-32 32c-17.7
+                  0-32-14.3-32-32s14.3-32 32-32c17.6 0 32 14.3 32 32zM328 328c13.3
+                   0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24
+                    24-24h144zm184-72c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6
+                     0 256 0s256 114.6 256 256zM256 464c114.9 0 208-93.1 208-208S370.9
+                      48 256 48S48 141.1 48 256s93.1 208 208 208z"
+              />
+            </svg>
+          </ng-template>
+
+          <ng-template
+            #sad
+            [ngIf]="person.happiness >= 0 && person.happiness < 35"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.6em"
+              height="1.6em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M143.9 398.6c-12.5-4.5-19-18.3-14.5-30.7C146.9 319.4 198.9 288
+                 256 288c57.1 0 109.1 31.4 126.6 79.9c4.5 12.4-2 26.2-14.5
+                  30.7c-12.4 4.5-26.2-2-30.7-14.5c-9.2-25.6-40.2-48.1-81.4-48.1s-72.2
+                   22.5-81.4 48.1c-4.5 12.5-18.3 19-30.7 14.5zM208.4 208c0 17.7-14.4
+                    32-32 32c-17.7 0-32-14.3-32-32s14.3-32 32-32c17.6 0 32 14.3 32
+                     32zm96 0c0-17.7 14.3-32 32-32c17.6 0 32 14.3 32 32s-14.4 32-32
+                      32c-17.7 0-32-14.3-32-32zM512 256c0 141.4-114.6 256-256 256S0
+                       397.4 0 256S114.6 0 256 0s256 114.6 256 256zM256 48C141.1 48
+                        48 141.1 48 256s93.1 208 208 208s208-93.1 208-208S370.9 48 256 48z"
+              />
+            </svg>
+          </ng-template>
+          {{ " " + person.happiness + " %" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="paginator">
+    <button (click)="back()">Back</button>
+    <button (click)="next()">Next</button>
+  </div>
+</div>

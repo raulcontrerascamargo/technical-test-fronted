@@ -12,11 +12,9 @@ export class PersonService {
 
   getPersons(pag: PaginatorInterface): PersonInterface[] {
     const result: PersonInterface[] = SampleData.slice(
-     
       pag.pageIndex * pag.pageSize,
-       (pag.pageIndex + 1) * pag.pageSize
+      (pag.pageIndex + 1) * pag.pageSize
     );
-    console.log('res', result);
     return result;
   }
 }

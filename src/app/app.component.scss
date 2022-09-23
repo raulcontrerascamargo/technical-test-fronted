@@ -1,11 +1,16 @@
 .side-menu {
   width: 18%;
   height: 100%;
-  float: left;
+  position: fixed !important;
+  z-index: 100;
 }
 
 .content {
   width: 78%;
   padding: 2%;
+  height: fit-content;
+
+  min-height: 100vh;
+  background: #f6f6f6;
   float: right;
 }

@@ -9,20 +9,20 @@ export class MonthConverterPipe implements PipeTransform {
     const months: number = value - 12 * years;
 
     if (years == 1) {
-      return `${years} Año ${this.getMonths(months)}`;
+      return `${years} year ${this.getMonths(months)}`;
     }
     if (years > 1) {
-      return `${years} Años ${this.getMonths(months)}`;
+      return `${years} years ${this.getMonths(months)}`;
     }
     return this.getMonths(months);
   }
 
   getMonths(months: number): string {
     if (months == 1) {
-      return `${months} Mes`;
+      return `${months} month`;
     }
     if (months > 1) {
-      return `${months} Meses`;
+      return `${months} months`;
     }
     return '';
   }
