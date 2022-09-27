@@ -6,12 +6,15 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'lista',
+    redirectTo: 'list',
   },
   {
-    path: 'lista',
+    path: 'list',
     component: ListComponent,
   },
+  { path: 'dashboard', component: ListComponent },
+  { path: 'selected', component: ListComponent },
+
 ];
 
 @NgModule({

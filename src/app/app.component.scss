@@ -1,16 +1,18 @@
+ @import '../styles/colors.scss';
+
 .side-menu {
-  width: 18%;
+  width: 15%;
   height: 100%;
   position: fixed !important;
   z-index: 100;
 }
 
 .content {
-  width: 78%;
+  width: 81%;
   padding: 2%;
   height: fit-content;
 
   min-height: 100vh;
-  background: #f6f6f6;
+  background: $gray-color;
   float: right;
 }
