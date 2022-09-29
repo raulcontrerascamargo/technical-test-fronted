@@ -2,6 +2,7 @@ export interface PersonInterface {
   id?: number;
   name: string;
   department: string;
-  happiness: number;
+  performance: number;
+  wellness: number;
   monthsWorking: number;
 }

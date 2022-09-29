@@ -1,4 +1,4 @@
- @import '../styles/colors.scss';
+@import "../styles/colors.scss";
 
 .side-menu {
   width: 15%;
@@ -8,11 +8,23 @@
 }
 
 .content {
-  width: 81%;
-  padding: 2%;
+  width: 85%;
+
   height: fit-content;
 
   min-height: 100vh;
   background: $gray-color;
   float: right;
+  display: grid;
+  grid: 1fr / 1fr;
+
+  .list {
+    min-height: 50rem;
+    padding: 3%;
+  }
+
+  .footer {
+    padding: 3%;
+    padding-bottom: 0px;
+  }
 }

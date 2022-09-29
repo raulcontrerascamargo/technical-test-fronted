@@ -7,6 +7,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { NewEmployeComponent } from './components/new-employe/new-employe.component';
 import { ListComponent } from './components/list/list.component';
 import { MonthConverterPipe } from './pipes/month-converter.pipe';
+import { FooterComponent } from './components/footer/footer.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { PerformanceConverterPipe } from './pipes/performance-converter.pipe';
 
 
 
@@ -17,6 +20,9 @@ import { MonthConverterPipe } from './pipes/month-converter.pipe';
     NewEmployeComponent,
     ListComponent,
     MonthConverterPipe,
+    FooterComponent,
+    BannerComponent,
+    PerformanceConverterPipe,
   ],
   imports: [
     BrowserModule,

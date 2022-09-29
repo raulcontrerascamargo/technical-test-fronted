@@ -5,8 +5,9 @@
         <th>#</th>
         <th>Name</th>
         <th>Department</th>
-        <th>Working Since</th>
-        <th>Happiness</th>
+        <th>Performance</th>
+        <th>Working for</th>
+        <th>Wellness</th>
       </tr>
     </thead>
     <tbody>
@@ -14,9 +15,10 @@
         <td>{{ i + (paginator.pageIndex * paginator.pageSize + 1) }}</td>
         <td>{{ person.name }}</td>
         <td>{{ person.department }}</td>
+        <td>{{person.performance | performanceConverter}} </td>
         <td>{{ person.monthsWorking | monthConverter }}</td>
         <td>
-          <ng-template #joyful [ngIf]="person.happiness >= 85">
+          <ng-template #joyful [ngIf]="person.wellness >= 85">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.6em"
@@ -42,7 +44,7 @@
 
           <ng-template
             #happy
-            [ngIf]="person.happiness >= 60 && person.happiness < 85"
+            [ngIf]="person.wellness >= 60 && person.wellness < 85"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +72,7 @@
 
           <ng-template
             #neutral
-            [ngIf]="person.happiness >= 35 && person.happiness < 60"
+            [ngIf]="person.wellness >= 35 && person.wellness < 60"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +96,7 @@
 
           <ng-template
             #sad
-            [ngIf]="person.happiness >= 0 && person.happiness < 35"
+            [ngIf]="person.wellness >= 0 && person.wellness < 35"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +119,7 @@
               />
             </svg>
           </ng-template>
-          {{ " " + person.happiness + " %" }}
+          {{ " " + person.wellness + " %" }}
         </td>
       </tr>
     </tbody>

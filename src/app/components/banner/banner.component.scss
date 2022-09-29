@@ -1,0 +1,50 @@
+@import "../../../styles/colors.scss";
+
+.banner {
+  font-size: 1.2rem;
+  text-align: center;
+
+  margin-top: 2.5em;
+  height: 2em;
+
+  span {
+    color: $blue-color;
+    font-style: italic;
+    font-weight: 900;
+    text-decoration: overline wavy;
+    display: inline-block;
+    -webkit-animation: wave-text 2s ease-in-out infinite;
+    animation: wave-text 2s ease-in-out infinite;
+  }
+
+  @for $i from 1 through 36 {
+    span:nth-of-type(#{$i}) {
+      -webkit-animation-delay: (#{($i - 1) / 10}s);
+      animation-delay: (#{($i - 1) / 10}s);
+    }
+  }
+}
+
+@-webkit-keyframes wave-text {
+  00% {
+    transform: translateY(0em);
+  }
+  60% {
+    transform: translateY(-0.6em);
+  }
+  100% {
+    transform: translateY(0em);
+  }
+}
+
+@keyframes wave-text {
+  00% {
+    transform: translateY(0em);
+  }
+  60% {
+    transform: translateY(-0.6em);
+  }
+  100% {
+    transform: translateY(0em);
+  }
+}
