@@ -1,0 +1,8 @@
+<div class="filter"></div>
+<app-list
+  [list]="listPerson"
+  [paginator]="paginator"
+  [listSelectedPerson]="listSelectedPerson"
+  (newPage)="getPage($event)"
+  (selectedPerson)="getSelected($event)"
+></app-list>

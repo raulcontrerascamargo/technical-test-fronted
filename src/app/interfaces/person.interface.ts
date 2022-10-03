@@ -5,4 +5,5 @@ export interface PersonInterface {
   performance: number;
   wellness: number;
   monthsWorking: number;
+  fav?: boolean
 }

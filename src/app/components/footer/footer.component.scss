@@ -13,9 +13,9 @@
   }
   .description {
     margin-bottom: 2.3em;
-h4{
-  margin-bottom: 1em;
-}
+    h4 {
+      margin-bottom: 1em;
+    }
   }
 
   .black-label {
@@ -25,12 +25,15 @@ h4{
     padding: 0;
     margin: 0;
     position: absolute;
-    background: black;
-    color: $white-color;
+
     text-align: right;
 
     .info {
+      background: #050505;
+      color: #0091ff;
       width: 85%;
+      font-size: 0.9rem;
+      padding: 0.1rem;
       float: right;
       display: inline-block;
       display: flex;

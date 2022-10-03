@@ -40,17 +40,8 @@ td {
   margin-top: 0.8em;
 }
 
-button {
-  margin-left: 1em;
-  padding: 0.4rem 1rem 0.4rem;
-  background: $white-color;
-  border-radius: 8px;
-  transition: 0.2s;
-  border: none;
-  box-shadow: 4px 5px 5px 1px rgba(2, 4, 69, 0.05);
+.actions {
+  width: fit-content;
+  margin: auto;
 }
 
-button:hover {
-  cursor: pointer;
-  background: $gray-color;
-}
