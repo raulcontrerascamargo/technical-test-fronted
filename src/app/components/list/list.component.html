@@ -42,7 +42,7 @@
         </td>
         <td>{{ i + (paginator.pageIndex * paginator.pageSize + 1) }}</td>
         <td>{{ person.name }}</td>
-        <td>{{ person.department }}</td>
+        <td>{{ person.department.name }}</td>
         <td>{{ person.performance | performanceConverter }}</td>
         <td>{{ person.monthsWorking | monthConverter }}</td>
         <td>

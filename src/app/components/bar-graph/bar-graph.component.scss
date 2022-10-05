@@ -1,0 +1,77 @@
+@import "../../../styles/colors.scss";
+
+.chart {
+  height: 100%;
+  width: 100%;
+  display: grid;
+
+  .scale {
+    grid-column: 1;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .square {
+    grid-column: 2 / span 2;
+    height: 800px;
+
+    border: solid 5px black;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .lines {
+      z-index: 1;
+      height: 0px;
+      width: 100%;
+      position: absolute;
+      opacity: 0.1;
+    }
+
+    .bar {
+      -moz-transition: height 0.5s;
+      -ms-transition: height 0.5s;
+      -o-transition: height 0.5s;
+      -webkit-transition: height 0.5s;
+      transition: height 0.5s;
+      cursor: pointer;
+      z-index: 1000;
+      margin-top: auto;
+      display: block;
+      background: seagreen;
+      text-align: center;
+
+      label {
+        color: $white-color;
+        visibility: hidden;
+      }
+    }
+
+    .bar:hover {
+      label {
+        visibility: visible;
+      }
+    }
+  }
+
+  .descriptions {
+    padding-top: 1.5em;
+    grid-column: 2 / span 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    p {
+      font-size: 1em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inline-block;
+      transform: rotate(-45deg);
+      width: 80px;
+      text-align: center;
+    }
+  }
+}

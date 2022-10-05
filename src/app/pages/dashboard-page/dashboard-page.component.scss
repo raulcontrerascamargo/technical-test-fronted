@@ -1,0 +1,22 @@
+@import "../../../styles/colors.scss";
+
+.container {
+  width: 100%;
+  background: $white-color;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 15px rgba(2, 4, 69, 0.05);
+  border-radius: 7px;
+  .title{
+    padding-top: 1em;
+    text-align: center;
+  }
+
+  .graph {
+    width: 75%;
+padding: 2em;
+    display: inline-block;
+  
+  }
+
+ 
+}

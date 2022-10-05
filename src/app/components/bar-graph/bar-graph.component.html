@@ -1,0 +1,57 @@
+<!-- <canvas #chart class="chart"> </canvas> -->
+
+<div class="chart">
+  <div class="scale">
+    <span
+      *ngFor="
+        let number of [
+          100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20,
+          15, 10, 5, 0
+        ]
+      "
+      [ngStyle]="
+        number === 100 ||
+        number === 75 ||
+        number === 50 ||
+        number === 25 ||
+        number === 0
+          ? { fontWeight: 'bold' }
+          : {}
+      "
+      >{{ number }}%</span
+    >
+  </div>
+  <div class="square">
+    <div
+      class="lines"
+      *ngFor="
+        let line of [
+          95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15,
+          10, 5
+        ]
+      "
+      [ngStyle]="
+        line === 75 || line === 50 || line === 25
+          ? {
+              bottom: line + '%',
+              opacity: '0.1',
+              borderBottom: 'solid 3px black'
+            }
+          : { bottom: line + '%', borderBottom: 'dotted 5px gray' }
+      "
+    ></div>
+    <span
+      class="bar"
+      *ngFor="let item of list"
+     
+      [ngStyle]="{
+        width: '6%',
+        height: item.value + '%'
+      }"
+    ><label for="bar">{{item.value}}%</label>
+    </span>
+  </div>
+  <div class="descriptions">
+    <p class="name" *ngFor="let item of elements">{{ item.name }}</p>
+  </div>
+</div>

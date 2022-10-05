@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EmployeesPageComponent } from './pages/employees-page/employees-page.component';
 import { FavPageComponent } from './pages/fav-page/fav-page.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { BarGraphComponent } from './components/bar-graph/bar-graph.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { FavPageComponent } from './pages/fav-page/fav-page.component';
     PerformanceConverterPipe,
     EmployeesPageComponent,
     FavPageComponent,
+    DashboardPageComponent,
+    BarGraphComponent,
   
   ],
   imports: [CommonModule, BrowserModule, FormsModule, AppRoutingModule],

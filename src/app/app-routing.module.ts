@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './components/list/list.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { EmployeesPageComponent } from './pages/employees-page/employees-page.component';
 import { FavPageComponent } from './pages/fav-page/fav-page.component';
 
@@ -14,7 +15,7 @@ const routes: Routes = [
     path: 'list',
     component: EmployeesPageComponent,
   },
-  { path: 'dashboard', component: ListComponent },
+  { path: 'dashboard', component: DashboardPageComponent },
   { path: 'selected', component: FavPageComponent },
 
 ];
