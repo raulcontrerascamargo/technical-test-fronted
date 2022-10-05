@@ -15,11 +15,32 @@ export class DashboardPageComponent implements OnInit {
 
   valueArray: chartInterface[] = [];
   departments: departmentInterface[] = [];
+  colors: string[] = [];
+  title: string = '';
 
   ngOnInit(): void {
     this.departments = this.personService.getDepartments();
 
-    this.valueArray = this.personService.getWellnessAverage();
- 
+    this.getAverageWellness();
+  }
+
+  getAverageWellness() {
+    this.valueArray = this.personService
+      .getWellnessAverage()
+      .map(({ ...e }) => e);
+
+    this.colors = ['#2e8b57'];
+    this.title = 'Average Wellness';
+
+    console.log('wellness', this.valueArray);
+  }
+
+  getAveragePerformance() {
+    this.valueArray = this.personService
+      .getPerformanceAverage()
+      .map(({ ...e }) => e);
+    this.colors = ['#3886a7'];
+    this.title = 'Average Performance';
+    console.log('performance', this.valueArray);
   }
 }

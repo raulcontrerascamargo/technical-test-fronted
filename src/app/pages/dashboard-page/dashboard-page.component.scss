@@ -6,17 +6,21 @@
   flex-wrap: wrap;
   box-shadow: 0 2px 15px rgba(2, 4, 69, 0.05);
   border-radius: 7px;
-  .title{
+  .title {
     padding-top: 1em;
     text-align: center;
   }
 
   .graph {
-    width: 75%;
-padding: 2em;
-    display: inline-block;
-  
+    width: 90%;
+    padding: 2em;
+    display: grid;
+    grid-template-columns:auto auto;
   }
 
- 
+  .controls {
+    
+    display: inline-block;
+   
+  }
 }

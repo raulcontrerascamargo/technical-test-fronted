@@ -59,13 +59,27 @@ export class PersonService {
   getWellnessAverage(): chartInterface[] {
     let value: chartInterface[] = [];
     this.getDepartments().forEach((e) => {
-
-      const filter: PersonInterface[] = this.listPerson.filter((v) => v.department.id === e.id);
-      const valAverage: number = filter.reduce((sum, e) => sum + e.wellness, 0) / filter.length;
-      value.push({ name: e.name, value: valAverage});
+      const filter: PersonInterface[] = this.listPerson.filter(
+        (v) => v.department.id === e.id
+      );
+      const valAverage: number =
+        filter.reduce((sum, e) => sum + e.wellness, 0) / filter.length;
+      value.push({ name: e.name, value: valAverage });
     });
 
-    console.log("value", value)
+    return value;
+  }
+
+  getPerformanceAverage(): chartInterface[] {
+    let value: chartInterface[] = [];
+    this.getDepartments().forEach((e) => {
+      const filter: PersonInterface[] = this.listPerson.filter(
+        (v) => v.department.id === e.id
+      );
+      const valAverage: number =
+        filter.reduce((sum, e) => sum + e.performance, 0) / filter.length;
+      value.push({ name: e.name, value: valAverage });
+    });
 
     return value;
   }

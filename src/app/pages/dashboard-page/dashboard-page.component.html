@@ -1,10 +1,13 @@
 <div class="container">
   <div class="title">
-    <h1>Average Wellness</h1>
+    <h1>{{title}}</h1>
   </div>
 
   <div class="graph">
-    <app-bar-graph [elements]="valueArray"></app-bar-graph>
-    <div class="controls"></div>
+    <app-bar-graph [elements]="valueArray" [colors]="colors"></app-bar-graph>
+    <div class="controls">
+      <button (click)="getAverageWellness()">Average Wellness</button>
+      <button (click)="getAveragePerformance()">Average Performance</button>
+    </div>
   </div>
 </div>
