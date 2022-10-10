@@ -1,4 +1,5 @@
 export interface chartInterface {
-name: string;
-value: number;
+  name: string;
+  value: number;
+  color?: string;
 }
