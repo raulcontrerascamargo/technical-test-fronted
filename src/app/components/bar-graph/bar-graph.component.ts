@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { chartInterface } from 'src/app/interfaces/chart.interface';
+import { MatrixService } from 'src/app/services/matrix.service';
 
 @Component({
   selector: 'app-bar-graph',
@@ -13,33 +14,58 @@ import { chartInterface } from 'src/app/interfaces/chart.interface';
   styleUrls: ['./bar-graph.component.scss'],
 })
 export class BarGraphComponent implements OnInit, OnChanges {
-  @Input() elements: chartInterface[] = [];
-  @Input() colors: string[] = [];
+  @Input() elements: chartInterface[][] = [];
 
-  list: chartInterface[] = [];
+  list: chartInterface[][] = [];
 
-  constructor() {}
+  descriptions: string[] = [];
+
+  constructor(private MatrixService: MatrixService) {}
 
   ngOnInit(): void {
-    console.log("colors", this.colors)
+    this.descriptions = [];
+    this.elements.forEach((arr) => {
+      arr.forEach((e) => {
+        this.descriptions.push(e.name);
+      });
+    });
+
     this.setValues();
   }
 
   setValues() {
-    const copyArray: chartInterface[] = this.elements.map(({ ...e }) => {
-      return e;
-    });
+    const backup: chartInterface[][] = this.MatrixService.copy(this.elements);
+    this.list = [];
 
-    this.list = copyArray.map((e) => {
-      e.value = 0.1;
-      return e;
-    });
-
-    setTimeout(() => {
-      this.list.forEach((e, index) => {
-        for (let i = 0; i < this.elements[index].value; i++) {
-          e.value = i;
+    /* Sort and create a new array */
+    const sortArray = () => {
+      for (let i = 0; i < backup[0].length; i++) {
+        let x: chartInterface[] = [];
+        for (let j = 0; j < backup.length; j++) {
+          x.push(backup[j][i]);
         }
+        this.list.push(x);
+      }
+    };
+
+    sortArray();
+
+    /* Create a copy of the matrix and then set the value of the bars to  0 */
+    const copy: chartInterface[][] = this.MatrixService.copy(this.list);
+    this.list.forEach((e) => {
+      e.forEach((v) => {
+        v.value = 0;
+      });
+    });
+
+    /* Reload the values of the copy matrix into the original matrix */
+    setTimeout(() => {
+      this.list.forEach((v, index) => {
+        v.forEach((e, p) => {
+          for (let i = 0; i < copy[index][p].value; i++) {
+            e.value = i;
+          }
+        });
       });
     }, 250);
   }

@@ -40,19 +40,25 @@
           : { bottom: line + '%', borderBottom: 'dotted 5px gray' }
       "
     ></div>
-    <span
-      class="bar"
-      *ngFor="let item of list"
-     
-      [ngStyle]="{
-        width: '6%',
-        height: item.value + '%'
-      }"
-      [style.background]="colors.length > 0? colors[0] : ''"
-    ><label for="bar">{{item.value}}%</label>
-    </span>
+
+    <ng-container *ngFor="let array of list">
+      <div class="bar-group">
+        <span
+          *ngFor="let item of array"
+          class="bar"
+          [ngStyle]="{
+            width: 95 / elements.length + '%',
+            height: item.value + '%'
+          }"
+          [style.background]="item.color"
+          ><label for="bar">{{ item.value }}%</label>
+        </span>
+      </div>
+    </ng-container>
   </div>
   <div class="descriptions">
-    <p class="name" *ngFor="let item of elements">{{ item.name }}</p>
+    <div class="description" *ngFor="let item of descriptions">
+      <p class="name">{{ item }}</p>
+    </div>
   </div>
 </div>

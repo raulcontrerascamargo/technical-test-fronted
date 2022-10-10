@@ -1,13 +1,29 @@
 <div class="container">
-  <div class="title">
-    <h1>{{title}}</h1>
-  </div>
+  <div class="title"></div>
 
   <div class="graph">
-    <app-bar-graph [elements]="valueArray" [colors]="colors"></app-bar-graph>
+    <app-bar-graph [elements]="valueArray"></app-bar-graph>
     <div class="controls">
-      <button (click)="getAverageWellness()">Average Wellness</button>
-      <button (click)="getAveragePerformance()">Average Performance</button>
+      <button
+        (click)="getAverageWellness()"
+        [ngStyle]="
+          graphSelected.includes('wellness')
+            ? { background: '#2e8b57', color: '#fff' }
+            : {}
+        "
+      >
+        Average Wellness
+      </button>
+      <button
+        (click)="getAveragePerformance()"
+        [ngStyle]="
+          graphSelected.includes('performance')
+            ? { background: '#3886a7', color: '#fff' }
+            : {}
+        "
+      >
+        Average Performance
+      </button>
     </div>
   </div>
 </div>

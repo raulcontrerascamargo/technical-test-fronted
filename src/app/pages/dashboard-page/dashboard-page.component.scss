@@ -15,12 +15,19 @@
     width: 90%;
     padding: 2em;
     display: grid;
-    grid-template-columns:auto auto;
+    grid-template-columns: 1fr auto;
   }
 
   .controls {
-    
     display: inline-block;
-   
+
+    .color {
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+
+      cursor: pointer;
+      text-decoration: none;
+    }
   }
 }
