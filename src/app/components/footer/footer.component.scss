@@ -21,20 +21,16 @@
   .black-label {
     width: 100%;
 
-    left: 0;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-
-    text-align: right;
-
     .info {
+      left: 0;
+      padding: 0;
+      margin: 0;
+      position: absolute;
       background: #050505;
       color: #0091ff;
-      width: 85%;
+      width: 100%;
       font-size: 0.9rem;
-      padding: 0.1rem;
-      float: right;
+      padding: 0.1rem 0;
       display: inline-block;
       display: flex;
       align-items: center;

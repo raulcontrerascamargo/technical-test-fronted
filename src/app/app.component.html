@@ -1,14 +1,16 @@
-<div class="side-menu">
-  <app-menu></app-menu>
-</div>
-
-<div class="content">
-  <app-banner></app-banner>
-  <div class="list">
-    <router-outlet></router-outlet>
+<div class="container">
+  <div class="side-menu">
+    <app-menu></app-menu>
   </div>
 
-  <div class="footer">
-    <app-footer></app-footer>
+  <div class="content">
+    <app-banner></app-banner>
+    <div class="page">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="footer">
+      <app-footer></app-footer>
+    </div>
   </div>
 </div>

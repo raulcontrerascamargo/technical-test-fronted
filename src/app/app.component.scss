@@ -1,30 +1,35 @@
 @import "../styles/colors.scss";
 
-.side-menu {
-  width: 15%;
-  height: 100%;
-  position: fixed !important;
-  z-index: 100;
-}
-
-.content {
-  width: 85%;
-
+.container {
   height: fit-content;
-
-  min-height: 100vh;
   background: $gray-color;
-  float: right;
+  width: fit-content;
   display: grid;
-  grid: 1fr / 1fr;
+  grid-template-columns: auto 1fr;
+  .side-menu {
+    min-width: 200px;
+    width: 15%;
+    height: 100%;
 
-  .list {
-    min-height: 50rem;
-    padding: 3%;
+    z-index: 10000;
   }
 
-  .footer {
-    padding: 3%;
-    padding-bottom: 0px;
+  .content {
+    height: fit-content;
+    width: fit-content;
+    min-height: 100vh;
+
+    float: right;
+    display: grid;
+
+    .page {
+      min-height: 50rem;
+      padding: 3%;
+    }
+
+    .footer {
+      padding: 3%;
+      padding-bottom: 0px;
+    }
   }
 }

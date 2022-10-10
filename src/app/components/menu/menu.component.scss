@@ -2,10 +2,11 @@
 
 .sidebar-wrapper {
   height: 100%;
-
+  position: fixed !important;
   .logo {
     height: 15%;
     display: grid;
+    background: $white-color;
     grid-template-columns: 2fr 1fr;
     place-items: center;
 
