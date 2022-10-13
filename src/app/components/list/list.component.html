@@ -1,4 +1,8 @@
 <div class="container">
+  <ng-container
+    [ngTemplateOutlet]="widthScreen < 1024 ? movileControls : null"
+  ></ng-container>
+
   <table>
     <thead>
       <tr>
@@ -22,12 +26,18 @@
             />
           </svg>
         </th>
-        <th>#</th>
-        <th>Name</th>
-        <th>Department</th>
-        <th>Performance</th>
-        <th>Working for</th>
-        <th>Wellness</th>
+
+        <th *ngFor="let item of listItem">
+          <span (click)="sorting(item.position)"
+            >{{ item.name }}
+            <ng-container
+              [ngTemplateOutlet]="
+                sortingData[item.position] != 0 ? arrow : null
+              "
+              [ngTemplateOutletContext]="{ position: item.position }"
+            ></ng-container>
+          </span>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -40,8 +50,9 @@
             (change)="selectPerson(person.id || 0)"
           />
         </td>
-        <td>{{ i + (paginator.pageIndex * paginator.pageSize + 1) }}</td>
+
         <td>{{ person.name }}</td>
+        <td>{{ person.id }}</td>
         <td>{{ person.department.name }}</td>
         <td>{{ person.performance | performanceConverter }}</td>
         <td>{{ person.monthsWorking | monthConverter }}</td>
@@ -157,3 +168,33 @@
     <button (click)="next()">Next</button>
   </div>
 </div>
+
+<ng-template #arrow let-position="position">
+  <svg
+    [ngStyle]="
+      sortingData[position] == -1 ? { transform: 'rotate(180deg)' } : {}
+    "
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 16 16"
+  >
+    <path
+      fill="currentColor"
+      fill-rule="evenodd"
+      d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
+    /></svg
+></ng-template>
+
+<ng-template #movileControls>
+  <ng-container *ngFor="let item of listItem">
+    <button (click)="sorting(item.position)">
+      {{ item.name }}
+      <ng-container
+        [ngTemplateOutlet]="sortingData[item.position] != 0 ? arrow : null"
+        [ngTemplateOutletContext]="{ position: item.position }"
+      ></ng-container>
+    </button>
+  </ng-container>
+</ng-template>

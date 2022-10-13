@@ -27,7 +27,6 @@ export class EmployeesPageComponent implements OnInit {
       this.listPerson.forEach((e) => {
         if (e.id == selected) {
           e.fav = true;
-          console.log('second', this.listSelectedPerson);
         }
       });
     });
@@ -40,5 +39,9 @@ export class EmployeesPageComponent implements OnInit {
 
   getSelected(selected: number[]) {
     this.listSelectedPerson = selected;
+  }
+
+  getSortingData(sortingData: number[]) {
+    this.listPerson = this.personService.sorting(sortingData, this.paginator);
   }
 }
